@@ -1,37 +1,49 @@
+wszytkie zawarte komendy to tylko przyklad  sql jaki mozna uzyc w danym pliku php
+
+
 add_product.php
 
-    
+ INSERT into products(id,cena,dostepnosc,nazwa,opis) values 
+ ("1","13","0","kabel","hdmi"), 
 
 edit_product.php
 
-
+    UPDATE customers
+    SET id='19'
+    where id='1';
 
 delete_product.php
 
-
+    DELETE from products
+    where id ='19';
 
 add_customer.php
 
+INSERT into customers(id,adres,e_mail,imie,nazwisko) values 
+("1","kwiatowa","email1@wp.pl","Jan","Kowalski"),
 
 
 edit_customer.php
 
-
+    UPDATE customers
+    SET id='20'
+    where id='1';
 
 delete_customer.php
 
-
+    DELETE from customers
+    where id ='20';
 
 view_products.php 
 
-
+    SELECT nazwa, opis cena, dostepnosc from products
 
 view_customers.php
 
-
+    SELECT imie, nazwisko, e_mail, adres FROM customers
 
 add_employee.php 
 
+        INSERT into employees(id,stanowisko,wynagrodzenie,imie,nazwisko) values 
+    ("1","informatyk","4000","adam","snak"),
 
-
-view_history.php
