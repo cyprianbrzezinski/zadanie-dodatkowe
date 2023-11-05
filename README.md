@@ -1,6 +1,8 @@
-####ZADANIE DODATKOWE
+#ZADANIE DODATKOWE
 
-###XAMPP
+#XAMPP
+
+
 #nowa database
 create DATABASE ERPDatabase
 
@@ -64,7 +66,7 @@ create TABLE Employee_Actions (
 );
 
 
-##Uzupelnienie rekordow
+#Uzupelnienie rekordow
 
 #customers
 INSERT into customers(id,adres,e_mail,imie,nazwisko) values 
