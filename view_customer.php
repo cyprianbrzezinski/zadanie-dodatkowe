@@ -34,8 +34,7 @@
     echo "<ol>";
     while ($pobieranie = mysqli_fetch_array($wysylanie)) {
         echo "<li>";
-        echo $pobieranie["imie"];
-        echo $pobieranie["nazwisko"];
+        echo $pobieranie["imie"]." ".$pobieranie["nazwisko"]." ".$pobieranie["adres"]." ".$pobieranie["e_mail"];
         echo "</li>";
     }
     echo "</ol>"
