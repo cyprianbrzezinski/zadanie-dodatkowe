@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Lis 05, 2023 at 06:26 PM
+-- Generation Time: Lis 06, 2023 at 01:09 PM
 -- Wersja serwera: 10.4.28-MariaDB
 -- Wersja PHP: 8.2.4
 
@@ -44,7 +44,20 @@ INSERT INTO `customers` (`id`, `imie`, `nazwisko`, `adres`, `e_mail`) VALUES
 (2, 'wieslawa', 'nowak', 'polna', 'email2@o2.pl'),
 (3, 'toamsz', 'kwas', 'laczna', 'tenemail@gmail.com'),
 (4, 'igor', 'masny', 'krzywa', 'taktenmail@.pl'),
-(5, 'karol', 'has', 'kwiatowa', 'email1@wp.pl');
+(5, 'karol', 'has', 'kwiatowa', 'email1@wp.pl'),
+(6, 'c', 'b', 'asd1', 'asd@asd'),
+(7, 'c', 'b', 'asd1', 'asd@asd'),
+(8, 'c', 'b', 'asd1', 'asd@asd'),
+(9, 'c', 'b', 'asd1', 'asd@asd'),
+(10, 'cyprian', 'B', 'asd', 'sad@adsf'),
+(11, 'cyprian', 'B', 'asd', 'sad@adsf'),
+(12, 'cyprian', 'B', 'asd', 'sad@adsf'),
+(13, 'cyprian', 'B', 'asd', 'sad@adsf'),
+(14, 'pan', 'pann', 'adres', 'mail@'),
+(15, 'pan', 'pann', 'adres', 'mail@'),
+(16, 'pan', 'pann', 'adres', 'mail@'),
+(17, 'pan', 'pann', 'adres', 'mail@'),
+(18, 'pan', 'pann', 'adres', 'mail@');
 
 -- --------------------------------------------------------
 
@@ -69,7 +82,8 @@ INSERT INTO `employees` (`id`, `imie`, `nazwisko`, `stanowisko`, `wynagrodzenie`
 (2, 'gabriela', 'zeromska', 'dyrektor', 5000),
 (3, 'dorian', 'haras', 'nauczyciel', 3800),
 (4, 'brajan', 'chwast', 'sekretariat', 3600),
-(5, 'zygmunt', 'krol', 'konserwator', 4000);
+(5, 'zygmunt', 'krol', 'konserwator', 4000),
+(6, 'pracownik', 'pracownik', 'dyrek', 2000);
 
 -- --------------------------------------------------------
 
@@ -132,7 +146,7 @@ CREATE TABLE `products` (
   `nazwa` varchar(20) DEFAULT NULL,
   `opis` varchar(30) DEFAULT NULL,
   `cena` double DEFAULT NULL,
-  `dostepnosc` bit(1) DEFAULT NULL
+  `dostepnosc` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -140,11 +154,12 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `nazwa`, `opis`, `cena`, `dostepnosc`) VALUES
-(1, 'kabel', 'hdmi', 13, b'1'),
-(2, 'monitor', 'msi', 2331, b'1'),
-(3, 'klawiatura', 'madog', 222, b'1'),
-(4, 'myszka', 'logitech', 204, b'1'),
-(5, 'przejsciowka', 'vga-hdmi', 20, b'1');
+(1, 'kabel', 'hdmi', 13, 0),
+(2, 'monitor', 'msi', 2331, 0),
+(3, 'klawiatura', 'madog', 222, 1),
+(4, 'myszka', 'logitech', 204, 1),
+(5, 'przejsciowka', 'vga-hdmi', 20, 0),
+(6, 'kredki', 'kolorowe', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -216,13 +231,13 @@ ALTER TABLE `uzytkownicy`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `employee_actions`
@@ -240,7 +255,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
