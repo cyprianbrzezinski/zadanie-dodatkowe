@@ -78,7 +78,8 @@
             echo "<td>" . $pobieranie["cena"] . " " . "</td>";
             echo "</tr>";
         }
-        echo "</table>"
+        echo "</table>";
+        mysqli_close($zmiennaB);
         ?>
     </div>
 

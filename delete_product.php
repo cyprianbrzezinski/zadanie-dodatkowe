@@ -77,7 +77,8 @@
             echo $pobieranie["nazwa"]." ".$pobieranie["opis"]." ".$pobieranie["Dostepnosc"]." ".$pobieranie["cena"];
             echo "</li>";
         }
-        echo "</ol>"
+        echo "</ol>";
+        mysqli_close($zmiennaB);
         ?>
     </div>
 

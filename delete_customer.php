@@ -77,7 +77,8 @@
             echo $pobieranie["imie"]." ".$pobieranie["nazwisko"]." ".$pobieranie["e_mail"]." ".$pobieranie["adres"];
             echo "</li>";
         }
-        echo "</ol>"
+        echo "</ol>";
+        mysqli_close($zmiennaB);
         ?>
     </div>
 

@@ -38,7 +38,8 @@
         echo $pobieranie["czas"]." ".$pobieranie["czynnosc"];
         echo "</li>";
     }
-    echo "</ol>"
+    echo "</ol>";
+    mysqli_close($zmiennaB);
     ?>
     </div>
 
