@@ -37,7 +37,7 @@ create TABLE Customers (
 );
 ```
 
-##Orders
+## Orders
 ```
 create TABLE Orders (
 	id int  AUTO_INCREMENT NOT null,
@@ -85,11 +85,6 @@ CREATE TABLE historia (
 ```
 ## Uzupelnienie rekordow
 
-
-## Uzupelnienie rekordow
-
-# customers
-=======
 ### customers
 ```
 >>>>>>> 13e0ae991febcad1d2d4c35a679c1bd00325ba7c:README.md
