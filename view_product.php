@@ -27,7 +27,7 @@
 <body>
 
     <a href="index.html" class="powrot">powrot</a>
-    <div>
+    <section>
     <h1>Lista dostępnych produktow</h1>
         <?php
         $zmiennaB = mysqli_connect("localhost", "root", "", "erpdatabase");
@@ -81,7 +81,7 @@
         echo "</table>";
         mysqli_close($zmiennaB);
         ?>
-    </div>
+    </section>
 
 </body>
 
