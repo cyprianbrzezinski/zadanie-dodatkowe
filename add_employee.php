@@ -48,8 +48,8 @@
         echo "Do dodany klient:" . "<br>";
         echo "imie: " . $imie . "<br>";
         echo "nazwisko: " . $nazwisko . "<br>";
-        echo "e-mail: " . $wynagrodzenie . "<br>";
-        echo "adres: " . $stanowisko . "<br>";
+        echo "wynagrodzenie: " . $wynagrodzenie . "<br>";
+        echo "stanowisko: " . $stanowisko . "<br>";
 
         $obecna_data= date("Y-m-d H:i:s");
         $dodanie_daty="INSERT INTO historia (czas,czynnosc) VALUES ('$obecna_data','Dodanie pracownika')";
