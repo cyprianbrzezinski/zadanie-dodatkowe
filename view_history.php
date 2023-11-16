@@ -26,7 +26,7 @@
 <body>
 
     <a href="index.html" class="powrot">powrot</a>
-    <div>
+    <section>
     <h1>Dziennik zdarzen</h1>
     <?php
     $zmiennaB = mysqli_connect("localhost", "root", "", "erpdatabase");
@@ -41,7 +41,7 @@
     echo "</ol>";
     mysqli_close($zmiennaB);
     ?>
-    </div>
+    </section>
 
 </body>
 
