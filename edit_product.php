@@ -27,10 +27,19 @@
             margin: 5%;
         }
 
-        div {
+        section {
             margin-top: 10%;
         }
     </style>
+    <?php
+        $zmiennaD= mysqli_connect("localhost", "root", "", "erpdatabase");
+        $zmienna2="SELECT count(id) FROM products";
+        $max_id_array=mysqli($zmiennaD,$zmienna2);
+        $max_id=0;
+        while($row=mysqli_fetch_array($max_id_array)){
+            $max_id=row["count(id)"];
+        }
+    ?>
 </head>
 
 <body>
@@ -38,12 +47,12 @@
 
     <main>
 
-        <div>
+        <section>
 
             <form action="edit_product.php" method="post">
                 <h1>EDYTUJ NAZWE</h1>
                 <label for="id">ID:</label>
-                <input type="number" name="id"></br>
+                <input type="number" name="id" section min="1" max="<?php echo($max_id); ?>"></br>
                 <label for="nazwa">Nazwa:</label>
                 <input type="text" name="nazwa">
                 <input type="submit" value="EDYTUJ NAZWE">
@@ -66,12 +75,12 @@
             }
             mysqli_close($zmiennaC);
             ?>
-        </div>
-        <div>
+        </section>
+        <section>
             <form action="edit_product.php" method="post">
                 <h1>EDYTUJ Opis</h1>
                 <label for="id">ID:</label>
-                <input type="number" name="id"></br>
+                <input type="number" name="id" section min="1" max="<?php echo($max_id); ?>"></br>
                 <label for="opis">opis:</label>
                 <input type="text" name="opis">
                 <input type="submit" value="EDYTUJ OPIS">
@@ -94,12 +103,12 @@
             }
             mysqli_close($zmiennaC);
             ?>
-        </div>
-        <div>
+        </section>
+        <section>
             <form action="edit_product.php" method="post">
                 <h1>EDYTUJ CENE</h1>
                 <label for="id">ID:</label>
-                <input type="number" name="id"></br>
+                <input type="number" name="id" section min="1" max="<?php echo($max_id); ?>"></br>
                 <label for="cena">cena:</label>
                 <input type="number" name="cena">
                 <input type="submit" value="EDYTUJ CENE">
@@ -122,12 +131,12 @@
             }
             mysqli_close($zmiennaC);
             ?>
-        </div>
-        <div>
+        </section>
+        <section>
             <form action="edit_product.php" method="post">
                 <h1>EDYTUJ DOSTEPNOSC</h1>
                 <label for="id">ID:</label>
-                <input type="number" name="id"></br>
+                <input type="number" name="id"  min="1" max="<?php echo($max_id); ?>" ></br>
                 <label for="dostepnosc">Dostepnosc:</label>
                 <input type="number" min="0" max="1" name="dostepnosc"><br>
                 <input type="submit" value="EDYTUJ DOSTEPNOSC">
@@ -150,10 +159,10 @@
             }
             mysqli_close($zmiennaC);
             ?>
-        </div>
+        </section>
 
     </main>
-    <section>
+    <nav>
         <h1>Lista produktow do edycji</h1>
         <?php
         $zmiennaA = mysqli_connect("localhost", "root", "", "erpdatabase");
@@ -189,7 +198,7 @@
         echo "</table>";
         mysqli_close($zmiennaA);
         ?>
-    </section>
+    </nav>
     <a href="index.html" class="powrot">powrot</a>
 
 </body>
