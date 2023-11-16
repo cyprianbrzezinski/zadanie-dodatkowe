@@ -33,11 +33,11 @@
     </style>
     <?php
         $zmiennaD= mysqli_connect("localhost", "root", "", "erpdatabase");
-        $zmienna2="SELECT count(id) FROM products";
-        $max_id_array=mysqli($zmiennaD,$zmienna2);
+        $zmienna2="SELECT max(id) FROM products";
+        $max_id_array=mysqli_query($zmiennaD,$zmienna2);
         $max_id=0;
         while($row=mysqli_fetch_array($max_id_array)){
-            $max_id=row["count(id)"];
+            $max_id=$row['max(id)'];
         }
     ?>
 </head>
