@@ -15,7 +15,7 @@
             text-decoration: none;
         }
 
-        div {
+        section {
             width: 40%;
             float: left;
         }
@@ -23,7 +23,7 @@
 </head>
 
 <body>
-    <div>
+    <section>
         <form action="delete_customer.php" method="post">
             <label for="imie">Imię: </label>
             <input type="text" id="imie" name="imie" required><br><br>
@@ -65,8 +65,8 @@
 
         mysqli_close($zmiennaA);
         ?>
-    </div>
-    <div>
+    </>
+    <section>
         <?php
         $zmiennaB = mysqli_connect("localhost", "root", "", "erpdatabase");
         $sprawdzanie = "Select imie, nazwisko, adres, e_mail from customers";
@@ -80,7 +80,7 @@
         echo "</ol>";
         mysqli_close($zmiennaB);
         ?>
-    </div>
+    </section>
 
 </body>
 
