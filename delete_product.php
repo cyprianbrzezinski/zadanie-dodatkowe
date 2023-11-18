@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Usuniecie produktu</title>
+    <title> Dodanie uzytkownika</title>
     <style>
         .powrot {
             float: right;
@@ -18,6 +18,10 @@
         section {
             width: 40%;
             float: left;
+        }
+        td{
+            padding: 5px;
+            border: 1px solid purple;
         }
     </style>
 </head>
@@ -69,16 +73,40 @@
     <section>
         <?php
         $zmiennaB = mysqli_connect("localhost", "root", "", "erpdatabase");
-        $sprawdzanie = "Select nazwa, opis, cena, Dostepnosc from products";
+        $sprawdzanie = "Select nazwa, opis, cena, dostepnosc from products";
         $wysylanie = mysqli_query($zmiennaB, $sprawdzanie);
-        echo "<ol>";
+        echo "<table>";
+        echo "<tr>";
+        echo "<th>";
+        echo "Nazwa";
+        echo "</th>";
+        echo "<th>";
+        echo "Opis";
+        echo "</th>";
+        echo "<th>";
+        echo "Cena";
+        echo "</th>";
+        echo "<th>";
+        echo "Dostepnosc";
+        echo "</th>";
+        echo "</tr>";
         while ($pobieranie = mysqli_fetch_array($wysylanie)) {
-            echo "<li>";
-            echo $pobieranie["nazwa"]." ".$pobieranie["opis"]." ".$pobieranie["Dostepnosc"]." ".$pobieranie["cena"];
-            echo "</li>";
+            echo "<tr>";
+            echo "<td>";
+            echo $pobieranie["nazwa"];
+            echo "</td>";
+            echo "<td>";
+            echo $pobieranie["opis"];
+            echo "</td>";
+            echo "<td>";
+            echo $pobieranie["cena"];
+            echo "</td>";
+            echo "<td>";
+            echo $pobieranie["dostepnosc"];
+            echo "</td>";
+            echo "</tr>";
         }
-        echo "</ol>";
-        mysqli_close($zmiennaB);
+        echo "</table>"
         ?>
     </section>
 

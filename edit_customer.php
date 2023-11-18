@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edycja produktu</title>
+    <title>Edycja Klienta</title>
     <style>
         .powrot {
             float: right;
