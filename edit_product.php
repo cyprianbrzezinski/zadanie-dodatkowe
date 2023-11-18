@@ -32,13 +32,20 @@
         }
     </style>
     <?php
-        $zmiennaD= mysqli_connect("localhost", "root", "", "erpdatabase");
-        $zmienna2="SELECT max(id) FROM products";
-        $max_id_array=mysqli_query($zmiennaD,$zmienna2);
-        $max_id=0;
-        while($row=mysqli_fetch_array($max_id_array)){
-            $max_id=$row['max(id)'];
-        }
+    $zmiennaD = mysqli_connect("localhost", "root", "", "erpdatabase");
+    $zmienna2 = "SELECT max(id) FROM products";
+    $max_id_array = mysqli_query($zmiennaD, $zmienna2);
+    $max_id = 0;
+    while ($row = mysqli_fetch_array($max_id_array)) {
+        $max_id = $row['max(id)'];
+    }
+
+    $zmienna3 = "SELECT min(id) FROM products";
+    $min_id_array = mysqli_query($zmiennaD, $zmienna3);
+    $min_id = 0;
+    while ($row2 = mysqli_fetch_array($min_id_array)) {
+        $min_id = $row2['min(id)'];
+    }
     ?>
 </head>
 
@@ -52,7 +59,7 @@
             <form action="edit_product.php" method="post">
                 <h1>EDYTUJ NAZWE</h1>
                 <label for="id">ID:</label>
-                <input type="number" name="id" section min="1" max="<?php echo($max_id); ?>"></br>
+                <input type="number" name="id" section min="<?php echo ($min_id); ?>" max="<?php echo ($max_id); ?>"></br>
                 <label for="nazwa">Nazwa:</label>
                 <input type="text" name="nazwa">
                 <input type="submit" value="EDYTUJ NAZWE">
@@ -62,16 +69,22 @@
             if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["id"]) && isset($_POST["nazwa"])) {
                 $id = $_POST["id"];
                 $nazwa = $_POST["nazwa"];
+                $sprawdzenie_id = "SELECT * FROM products WHERE id ='$id'";
+                $wynik_sprawdzenia = mysqli_query($zmiennaC, $sprawdzenie_id);
+
+                if(mysqli_num_rows($wynik_sprawdzenia) > 0){
+
+                echo "Nazwa została edytowana na: $nazwa <br>";
                 $Zmiana = "update products set nazwa = '$nazwa' where id ='$id'";
                 $lacznie = mysqli_query($zmiennaC, $Zmiana);
-
-                echo "Nazwa została edytowana na: $nazwa<br>";
-
 
                 $obecna_data = date("Y-m-d H:i:s");
                 $dodanie_daty = "INSERT INTO historia (czas,czynnosc) VALUES ('$obecna_data','Edycja produktu nazwa')";
                 $wysylanie2 = mysqli_query($zmiennaC, $dodanie_daty);
                 echo "Akcja została dodana do histori.";
+                }else{
+                    echo"Podaj prawidłowy numer id";
+                }
             }
             mysqli_close($zmiennaC);
             ?>
@@ -80,7 +93,7 @@
             <form action="edit_product.php" method="post">
                 <h1>EDYTUJ Opis</h1>
                 <label for="id">ID:</label>
-                <input type="number" name="id" section min="1" max="<?php echo($max_id); ?>"></br>
+                <input type="number" name="id" sectionmin="<?php echo ($min_id); ?>" max="<?php echo ($max_id); ?>"></br>
                 <label for="opis">opis:</label>
                 <input type="text" name="opis">
                 <input type="submit" value="EDYTUJ OPIS">
@@ -90,16 +103,22 @@
             if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["id"]) && isset($_POST["opis"])) {
                 $id = $_POST["id"];
                 $opis = $_POST["opis"];
+                $sprawdzenie_id = "SELECT * FROM products WHERE id ='$id'";
+                $wynik_sprawdzenia = mysqli_query($zmiennaC, $sprawdzenie_id);
+
+                if(mysqli_num_rows($wynik_sprawdzenia) > 0){
+
+                echo "opis została edytowana na: $opis <br>";
                 $Zmiana = "update products set opis = '$opis' where id ='$id'";
                 $lacznie = mysqli_query($zmiennaC, $Zmiana);
 
-                echo "Nazwa została edytowana na: $opis<br>";
-
-
                 $obecna_data = date("Y-m-d H:i:s");
-                $dodanie_daty = "INSERT INTO historia (czas,czynnosc) VALUES ('$obecna_data','Edycja produktu opisu')";
+                $dodanie_daty = "INSERT INTO historia (czas,czynnosc) VALUES ('$obecna_data','Edycja produktu opis')";
                 $wysylanie2 = mysqli_query($zmiennaC, $dodanie_daty);
                 echo "Akcja została dodana do histori.";
+                }else{
+                    echo"Podaj prawidłowy numer id";
+                }
             }
             mysqli_close($zmiennaC);
             ?>
@@ -108,7 +127,7 @@
             <form action="edit_product.php" method="post">
                 <h1>EDYTUJ CENE</h1>
                 <label for="id">ID:</label>
-                <input type="number" name="id" section min="1" max="<?php echo($max_id); ?>"></br>
+                <input type="number" name="id" sectionmin="<?php echo ($min_id); ?>" max="<?php echo ($max_id); ?>"></br>
                 <label for="cena">cena:</label>
                 <input type="number" name="cena">
                 <input type="submit" value="EDYTUJ CENE">
@@ -118,16 +137,22 @@
             if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["id"]) && isset($_POST["cena"])) {
                 $id = $_POST["id"];
                 $cena = $_POST["cena"];
+                $sprawdzenie_id = "SELECT * FROM products WHERE id ='$id'";
+                $wynik_sprawdzenia = mysqli_query($zmiennaC, $sprawdzenie_id);
+
+                if(mysqli_num_rows($wynik_sprawdzenia) > 0){
+
+                echo "Cena została edytowana na: $cena <br>";
                 $Zmiana = "update products set cena = '$cena' where id ='$id'";
                 $lacznie = mysqli_query($zmiennaC, $Zmiana);
 
-                echo "Nazwa została edytowana na: $cena<br>";
-
-
                 $obecna_data = date("Y-m-d H:i:s");
-                $dodanie_daty = "INSERT INTO historia (czas,czynnosc) VALUES ('$obecna_data','Edycja produktu ceny')";
+                $dodanie_daty = "INSERT INTO historia (czas,czynnosc) VALUES ('$obecna_data','Edycja produktu cena')";
                 $wysylanie2 = mysqli_query($zmiennaC, $dodanie_daty);
                 echo "Akcja została dodana do histori.";
+                }else{
+                    echo"Podaj prawidłowy numer id";
+                }
             }
             mysqli_close($zmiennaC);
             ?>
@@ -136,7 +161,7 @@
             <form action="edit_product.php" method="post">
                 <h1>EDYTUJ DOSTEPNOSC</h1>
                 <label for="id">ID:</label>
-                <input type="number" name="id"  min="1" max="<?php echo($max_id); ?>" ></br>
+                <input type="number" name="id"min="<?php echo ($min_id); ?>" max="<?php echo ($max_id); ?>"></br>
                 <label for="dostepnosc">Dostepnosc:</label>
                 <input type="number" min="0" max="1" name="dostepnosc"><br>
                 <input type="submit" value="EDYTUJ DOSTEPNOSC">
@@ -146,16 +171,22 @@
             if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["id"]) && isset($_POST["dostepnosc"])) {
                 $id = $_POST["id"];
                 $dostepnosc = $_POST["dostepnosc"];
+                $sprawdzenie_id = "SELECT * FROM products WHERE id ='$id'";
+                $wynik_sprawdzenia = mysqli_query($zmiennaC, $sprawdzenie_id);
+
+                if(mysqli_num_rows($wynik_sprawdzenia) > 0){
+
+                echo "Dostepnosc została edytowana na: $dostepnosc <br>";
                 $Zmiana = "update products set dostepnosc = '$dostepnosc' where id ='$id'";
                 $lacznie = mysqli_query($zmiennaC, $Zmiana);
-
-                echo "Nazwa została edytowana na: $dostepnosc<br>";
-
 
                 $obecna_data = date("Y-m-d H:i:s");
                 $dodanie_daty = "INSERT INTO historia (czas,czynnosc) VALUES ('$obecna_data','Edycja produktu dostepnosc')";
                 $wysylanie2 = mysqli_query($zmiennaC, $dodanie_daty);
                 echo "Akcja została dodana do histori.";
+                }else{
+                    echo"Podaj prawidłowy numer id";
+                }
             }
             mysqli_close($zmiennaC);
             ?>
