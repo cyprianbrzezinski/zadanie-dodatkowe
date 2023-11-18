@@ -59,7 +59,7 @@
             <form action="edit_product.php" method="post">
                 <h1>EDYTUJ NAZWE</h1>
                 <label for="id">ID:</label>
-                <input type="number" name="id" section min="<?php echo ($min_id); ?>" max="<?php echo ($max_id); ?>"></br>
+                <input type="number" name="id"  min="<?php echo ($min_id); ?>" max="<?php echo ($max_id); ?>"></br>
                 <label for="nazwa">Nazwa:</label>
                 <input type="text" name="nazwa">
                 <input type="submit" value="EDYTUJ NAZWE">
@@ -93,7 +93,7 @@
             <form action="edit_product.php" method="post">
                 <h1>EDYTUJ Opis</h1>
                 <label for="id">ID:</label>
-                <input type="number" name="id" sectionmin="<?php echo ($min_id); ?>" max="<?php echo ($max_id); ?>"></br>
+                <input type="number" name="id" min="<?php echo ($min_id); ?>" max="<?php echo ($max_id); ?>"></br>
                 <label for="opis">opis:</label>
                 <input type="text" name="opis">
                 <input type="submit" value="EDYTUJ OPIS">
@@ -127,7 +127,7 @@
             <form action="edit_product.php" method="post">
                 <h1>EDYTUJ CENE</h1>
                 <label for="id">ID:</label>
-                <input type="number" name="id" sectionmin="<?php echo ($min_id); ?>" max="<?php echo ($max_id); ?>"></br>
+                <input type="number" name="id" min="<?php echo ($min_id); ?>" max="<?php echo ($max_id); ?>"></br>
                 <label for="cena">cena:</label>
                 <input type="number" name="cena">
                 <input type="submit" value="EDYTUJ CENE">
@@ -161,7 +161,7 @@
             <form action="edit_product.php" method="post">
                 <h1>EDYTUJ DOSTEPNOSC</h1>
                 <label for="id">ID:</label>
-                <input type="number" name="id"min="<?php echo ($min_id); ?>" max="<?php echo ($max_id); ?>"></br>
+                <input type="number" name="id" min="<?php echo ($min_id); ?>" max="<?php echo ($max_id); ?>"></br>
                 <label for="dostepnosc">Dostepnosc:</label>
                 <input type="number" min="0" max="1" name="dostepnosc"><br>
                 <input type="submit" value="EDYTUJ DOSTEPNOSC">
